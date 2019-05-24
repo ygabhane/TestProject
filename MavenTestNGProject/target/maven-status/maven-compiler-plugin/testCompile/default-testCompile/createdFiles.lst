@@ -1,0 +1,3 @@
+com\inetbanking\testcases\BaseClass.class
+com\inetbanking\pageobjects\LoginPage.class
+com\inetbanking\testcases\TC_LoginTest_001.class
