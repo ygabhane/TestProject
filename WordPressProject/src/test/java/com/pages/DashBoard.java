@@ -1,12 +1,19 @@
 package com.pages;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DashBoard {
-	
 	
 	public WebDriver driver;
 	public DashBoard(WebDriver driver)
@@ -15,7 +22,6 @@ public class DashBoard {
 	}
 	
 	By users=By.xpath("//div[@class='wp-menu-name' and text()='Users']");
-	//By addnewUsers=By.xpath("//a[@class='current' and text()='Add New']");
 	By addnewUsers=By.xpath("//a[@class='page-title-action' and text()='Add New']");
 	By nusername=By.id("user_login");
 	By nemail=By.id("email");
@@ -23,10 +29,12 @@ public class DashBoard {
 	By nLname=By.id("last_name");
 	By nWebsite=By.xpath("//input[contains(@name,'url')]");
 	By nshowpwd= By.xpath("//button[contains(@type,'button') and contains(@class,'button wp-generate-pw hide-if-no-js')]");
-	By nenterPwd=By.id("pass1-text");
+	//By nenterPwd=By.id("pass1-text");
+	By nenterPwd=By.cssSelector("input.regular-text strong[name=pass1-text]");
 	By nrole=By.id("role");
 	By naddNewBtn=By.id("createusersub");
-	By nEdituser=By.id("user_2");
+	
+	By nEdituser=By.xpath("//input[@name='users[]']");
 	By nClickEditUser=By.xpath(" //span[@class='edit' ] //a[contains(text(),'Edit')]");
 	
 	
@@ -38,22 +46,39 @@ public class DashBoard {
 	public void nUserDetails() throws InterruptedException
 	{
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
-		driver.findElement(nusername).sendKeys("Ygabhane");
-		driver.findElement(nemail).sendKeys("gabhane.yogesh45@gmail.com");
-		driver.findElement(nFname).sendKeys("Yogesh");
+		driver.findElement(nusername).sendKeys("kgabhane");
+		driver.findElement(nemail).sendKeys("yogesgablhane45@gmail.com");
+		driver.findElement(nFname).sendKeys("Nami");
 		driver.findElement(nLname).sendKeys("Gabhane");
-		driver.findElement(nWebsite).sendKeys("WWW.yogeshgabhane.com");
+		driver.findElement(nWebsite).sendKeys("WWW.yolgr445gshs.com");
 		driver.findElement(nshowpwd).click();
-		driver.findElement(nenterPwd).sendKeys("Yogurocks65");
-		Thread.sleep(3000);
+	//	driver.findElement(nenterPwd).click();
+      //  driver.findElement(By.name("pass1-text")).sendKeys("Yogurockss454 ");
+		
+		
+		driver.findElement(nenterPwd).sendKeys("Yogurood@147");
 		driver.findElement(nrole).click();
-		Thread.sleep(3000);
 		driver.findElement(naddNewBtn).click();
-		Thread.sleep(3000);
-		driver.findElement(nEdituser).click();
-		Thread.sleep(3000);
-		driver.findElement(nClickEditUser).click();
+		
 	}
+	/*public void Editdetails()
+	{
+		WebDriverWait wobj3=new WebDriverWait(driver, 20);
+		ArrayList<WebElement> element=(ArrayList<WebElement>) driver.findElements(nEdituser); 
+		int size=element.size();
+		System.out.println("List of element on page="+size);
+		
+	
+		String checkubox="user_2";
+		for(int i=0; i<element.size(); i++)
+		{
+			if(element.get(i).getAttribute("for").equalsIgnoreCase(checkubox))
+			{
+				element.get(i).click();
+			}
+		}
+		//driver.findElement(nClickEditUser).click();
+	}*/
 	
 	
 

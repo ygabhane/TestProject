@@ -10,6 +10,7 @@ import com.pages.DashBoard;
 import com.pages.LoginPage;
 
 public class VerifyHomeAddNewUsers {
+	
 	@Test
 	public void addNewUsers() throws InterruptedException
 	{
@@ -20,14 +21,13 @@ public class VerifyHomeAddNewUsers {
 		driver.get("http://demosite.center/wordpress/wp-login.php?loggedout=true");
 		
 		LoginPage login=new LoginPage(driver);
-		
 		login.typeUname();
 		login.typePwd();
 		login.clickButton();
-		
 		DashBoard dboard=new DashBoard(driver) ;
 		dboard.ausers();
 		dboard.nUserDetails();
+		
 	}
 
 }
